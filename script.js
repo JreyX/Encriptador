@@ -1,17 +1,30 @@
 const textArea = document.querySelector(".text-area");
 const mensaje = document.querySelector(".mensaje");
 
-function btnEncriptar(){
-    const textoEncriptado = encriptar(textArea.value)
-    mensaje.value = textoEncriptado
-    textArea.value = "";
-    mensaje.style.backgroundImage = "none"
-}
-
 function btnDesencriptar(){
     const textoDesencriptado = desencriptar(textArea.value)
     mensaje.value = textoDesencriptado
-    textArea.value = "";
+    textArea.value = " ";
+}
+
+function btnEncriptar(){
+    const textoEncriptado = encriptar(textArea.value)
+    mensaje.value = textoEncriptado
+    textArea.value = " ";
+    mensaje.style.backgroundImage = "none"
+}
+
+function btnCopiar(){
+    const copiarTexto = mensaje.value;
+    navigator.clipboard.writeText(copiarTexto);
+    if (textArea.value = " "){
+    Swal.fire({
+        position: 'center',
+        title: 'Copiado Exitosamente',
+        showConfirmButton: false,
+        timer: 2000
+    })
+    }
 }
 
 
